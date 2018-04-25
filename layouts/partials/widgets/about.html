@@ -15,7 +15,7 @@
       {{ end }}
 
       <div class="portrait-title">
-        <h2 itemprop="name">{{ $.Site.Params.name }}</h2>
+        {{ with $.Site.Params.name }}<h2 itemprop="name">{{ . | safeHTML }}</h2>{{ end }}
         {{ with $.Site.Params.role }}<h3 itemprop="jobTitle">{{ . }}</h3>{{ end }}
 
         {{/* Support legacy `organization` option. */}}
@@ -30,7 +30,7 @@
         {{ range $.Site.Params.organizations }}
         <h3 itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
           {{ with .url }}<a href="{{ . }}" target="_blank" itemprop="url" rel="noopener">{{ end }}
-          <span itemprop="name">{{ .name }}</span>
+          <span itemprop="name">{{ .name | safeHTML }}</span>
           {{ if .url }}</a>{{ end }}
         </h3>
         {{ end }}
