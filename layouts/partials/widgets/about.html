@@ -29,13 +29,13 @@
       {{ end }}
 
       <div class="portrait-title">
-        <h2>{{ $person.name }}</h2>
+        <h2>Cristián<br>Ramón-Cortés<br>Vilarrodona</h2>
         {{ with $person.role }}<h3>{{ . | markdownify | emojify }}</h3>{{ end }}
 
         {{ range $person.organizations }}
         <h3>
           {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}
-          <span>{{ .name }}</span>
+          <span>{{ .name | safeHTML }}</span>
           {{ if .url }}</a>{{ end }}
         </h3>
         {{ end }}
