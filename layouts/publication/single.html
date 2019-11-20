@@ -8,7 +8,7 @@
 
     {{ if .Params.abstract }}
     <h3>{{ i18n "abstract" }}</h3>
-    <p class="pub-abstract">{{ .Params.abstract | markdownify }}</p>
+    <p class="pub-abstract" align="justify">{{ .Params.abstract | markdownify }}</p>
     {{ end }}
 
     {{ if (.Params.publication_types) and (ne (index .Params.publication_types 0) "0") }}
